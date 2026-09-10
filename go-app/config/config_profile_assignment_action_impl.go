@@ -76,10 +76,13 @@ func (c Config_Controller_Profile_Control_Assignment_Action) MarshalJSON() ([]by
 	if c.DirectControl != nil {
 		return json.Marshal(c.DirectControl)
 	}
+	if c.ApiControl != nil {
+		return json.Marshal(c.ApiControl)
+	}
 	if c.Keys != nil {
 		return json.Marshal(c.Keys)
 	}
-	return nil, fmt.Errorf("unable to marshal control assignment action; has to be one of direct_control or keys but neither was found")
+	return nil, fmt.Errorf("unable to marshal control assignment action; has to be one of direct_control, keys, virtual, or api_control but neither was found")
 }
 
 func (c *Config_Controller_Profile_Control_Assignment_Action) ToString() string {
