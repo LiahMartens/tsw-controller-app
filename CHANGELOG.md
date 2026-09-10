@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v1.20.1
+- Added TSW6 CommAPI detection
+
 ## v1.20.0
 - Updated listeners schema
 
