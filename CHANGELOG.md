@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v1.20.2
+- Bump `xmldom`
+
 ## v1.20.1
 - Added TSW6 CommAPI detection
 - Fix marshal bug
