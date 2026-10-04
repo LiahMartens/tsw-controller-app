@@ -2,13 +2,13 @@
 
 # TSW Controller App
 
-This program allows you to use any joystick to directly control various train simulator games with any controller (Train Sim World 5/6, Train Simulator Classic, Wonders of Sodor, Running Train). This is NOT a raildriver compatibility layer, rather it interfaces directly with the game.
+This program allows you to use any joystick to directly control various train simulator games with any controller (Train Sim World 5/6/7, Train Simulator Classic, Wonders of Sodor, Running Train). This is NOT a raildriver compatibility layer, rather it interfaces directly with the game.
 
 ## Supported Games
 
 | Game                    | Supported |                                                        |
 | ----------------------- | --------- | ------------------------------------------------------ |
-| Train Sim World 5/6     | ✅        |                                                        |
+| Train Sim World 5/6/7     | ✅        |                                                        |
 | Wonders of Sodor        | ✅        |                                                        |
 | Train Simulator Classic | ✅        | No `api_control` - requires mod to be installed        |
 | Running Train           | ⚠️        | No `api_control` - requires mod to be installed (beta) |

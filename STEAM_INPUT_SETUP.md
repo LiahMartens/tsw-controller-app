@@ -1,6 +1,6 @@
 # **Guide: Configuring Steam Input to disable joystick / controller**
 
-This guide explains how to use set-up and configure Steam Input to ensure the intercepted controllers are not being processed by Train Sim World 5/6.
+This guide explains how to use set-up and configure Steam Input to ensure the intercepted controllers are not being processed by Train Sim World 5/6/7.
 
 ---
 
@@ -8,7 +8,7 @@ This guide explains how to use set-up and configure Steam Input to ensure the in
 
 1. Launch **Steam**.
 2. Go to your **Library**.
-3. Right-click the Train Sim World 5/6 and select **Properties**.
+3. Right-click the Train Sim World 5/6/7 and select **Properties**.
   
 ![Game Properties](https://i.postimg.cc/vHHTxzBp/001-steam-input-guide-open-game.png)  
   

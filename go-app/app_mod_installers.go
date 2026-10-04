@@ -14,7 +14,7 @@ import (
 
 func (a *App) InstallTrainSimWorldMod() error {
 	tsw_exe_path, err := runtime.OpenFileDialog(a.ctx, runtime.OpenDialogOptions{
-		Title: "Select Train Sim World 5/6 executable within TS2Prototype/Binaries/Win64 (TrainSimWorld.exe)",
+		Title: "Select Train Sim World 5/6/7 executable within TS2Prototype/Binaries/Win64 (TrainSimWorld.exe)",
 	})
 	if err != nil {
 		return err
