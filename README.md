@@ -2,13 +2,13 @@
 
 # TSW Controller App
 
-This program allows you to use any joystick to directly control various train simulator games with any controller (Train Sim World 5/6, Train Simulator Classic, Wonders of Sodor, Running Train). This is NOT a raildriver compatibility layer, rather it interfaces directly with the game.
+This program allows you to use any joystick to directly control various train simulator games with any controller (Train Sim World 5/6/7, Train Simulator Classic, Wonders of Sodor, Running Train). This is NOT a raildriver compatibility layer, rather it interfaces directly with the game.
 
 ## Supported Games
 
 | Game                    | Supported |                                                        |
 | ----------------------- | --------- | ------------------------------------------------------ |
-| Train Sim World 5/6     | ✅        |                                                        |
+| Train Sim World 5/6/7     | ✅        |                                                        |
 | Wonders of Sodor        | ✅        |                                                        |
 | Train Simulator Classic | ✅        | No `api_control` - requires mod to be installed        |
 | Running Train           | ⚠️        | No `api_control` - requires mod to be installed (beta) |
@@ -78,8 +78,9 @@ You can also manually install if you alread have your own UE4SS installed and wa
 
 You can also manually install the Train Simulator Classic mod. To do so you will need to download the respective binary for you platform as well as the TSC mod and manually place the mod files in the game directory.
 
-**Note linux users**  
-SDL and Webkit2 4.1 are required for this app to work and will need to be installed.
+**Notes for linux users**  
+- SDL and Webkit2 4.1 are required for this app to work and will need to be installed.
+- You will need to force Proton 9 or 10 for Train Sim World 5/6/7 for UE4ss to load correctly
 
 > From version 1.16.x and up SDL3 is bundled with the binary and does not need to be manually installed anymore
 

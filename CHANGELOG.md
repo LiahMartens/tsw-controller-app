@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v1.20.2
+- Bump `xmldom`
+- Add note about Proton version
+- Update select binary title for TSW7
+- Add BL36 profile
+
 ## v1.20.1
 - Added TSW6 CommAPI detection
 - Fix marshal bug

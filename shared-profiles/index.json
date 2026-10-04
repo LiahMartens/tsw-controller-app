@@ -709,6 +709,14 @@
     },
     {
       "usb_id": "044F:040A",
+      "file": "./bl36.tswprofile",
+      "name": "BL36 - TCA Quadrant Boeing",
+      "apps": [
+        "Train Sim World"
+      ]
+    },
+    {
+      "usb_id": "044F:040A",
       "file": "./multilevel_cabcar_njt.tswprofile",
       "name": "Multi-Level Commuter Cab Car - TCA Quadrant Boeing",
       "apps": [
