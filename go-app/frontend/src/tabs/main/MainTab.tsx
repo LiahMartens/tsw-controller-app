@@ -17,6 +17,8 @@ import {
   SaveProfileForSharingWithControllerInformation,
   ImportProfile,
   ForceSyncSelectedProfiles,
+  SelectProfile,
+  ClearProfile,
 } from "../../../wailsjs/go/main/App";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { BrowserOpenURL, EventsOn } from "../../../wailsjs/runtime/runtime";
@@ -65,17 +67,17 @@ export const MainTab = ({ onOpenCabDebuggerTab }: Props) => {
   }, []);
 
   const trySyncSelectedProfiles = useCallback(async () => {
-    await ForceSyncSelectedProfiles().then((selectedProfiles) => {
-      const profiles = getValues("profiles");
-      for (const guid in selectedProfiles) {
-        if (guid in profiles && profiles[guid] == selectedProfiles[guid]) continue;
-        form.setValue(`profiles.${guid}`, selectedProfiles[guid]);
+    const profiles = getValues("profiles");
+    for (const guid in profiles) {
+      if (profiles[guid]) {
+        await SelectProfile(guid, profiles[guid].Id).catch(async () => {
+          await ClearProfile(guid);
+          form.setValue(`profiles.${guid}`, undefined);
+        });
+      } else {
+        await ClearProfile(guid);
       }
-      for (const guid in profiles) {
-        if (guid in selectedProfiles) continue;
-        form.setValue(`profiles.${guid}`, undefined);
-      }
-    })
+    }
   }, [form]);
 
   const handleReloadConfiguration = () => {
