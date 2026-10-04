@@ -78,8 +78,9 @@ You can also manually install if you alread have your own UE4SS installed and wa
 
 You can also manually install the Train Simulator Classic mod. To do so you will need to download the respective binary for you platform as well as the TSC mod and manually place the mod files in the game directory.
 
-**Note linux users**  
-SDL and Webkit2 4.1 are required for this app to work and will need to be installed.
+**Notes for linux users**  
+- SDL and Webkit2 4.1 are required for this app to work and will need to be installed.
+- You will need to force Proton 9 or 10 for Train Sim World 5/6/7 for UE4ss to load correctly
 
 > From version 1.16.x and up SDL3 is bundled with the binary and does not need to be manually installed anymore
 
