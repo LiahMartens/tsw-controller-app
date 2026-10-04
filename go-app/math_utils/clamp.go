@@ -1,8 +1,8 @@
 package math_utils
 
-import "golang.org/x/exp/constraints"
+import "cmp"
 
-func Clamp[T constraints.Ordered](value, min, max T) T {
+func Clamp[T cmp.Ordered](value, min, max T) T {
 	if value < min {
 		return min
 	}

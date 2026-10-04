@@ -6,6 +6,8 @@ export function ClearProfile(arg1:string):Promise<void>;
 
 export function DeleteProfile(arg1:string):Promise<void>;
 
+export function ForceSyncSelectedProfiles():Promise<Record<string, main.Interop_SelectedProfileInfo>>;
+
 export function GetAlwaysOnTop():Promise<boolean>;
 
 export function GetCabControlState():Promise<main.Interop_Cab_ControlState>;

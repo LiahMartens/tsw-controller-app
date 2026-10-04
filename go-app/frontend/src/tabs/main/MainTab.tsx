@@ -1,8 +1,6 @@
 import { lt as semverLt } from "semver";
 import {
   LoadConfiguration,
-  SelectProfile,
-  ClearProfile,
   GetSelectedProfiles,
   InstallTrainSimWorldMod,
   OpenConfigDirectory,
@@ -18,6 +16,7 @@ import {
   SaveProfileForSharing,
   SaveProfileForSharingWithControllerInformation,
   ImportProfile,
+  ForceSyncSelectedProfiles,
 } from "../../../wailsjs/go/main/App";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { BrowserOpenURL, EventsOn } from "../../../wailsjs/runtime/runtime";
@@ -65,22 +64,25 @@ export const MainTab = ({ onOpenCabDebuggerTab }: Props) => {
     BrowserOpenURL(url);
   }, []);
 
-  const trySyncSelectedProfiles = useCallback(() => {
-    const profiles = getValues("profiles");
-    for (const guid in profiles) {
-      if (profiles[guid]) {
-        SelectProfile(guid, profiles[guid].Id).catch(() => {
-          ClearProfile(guid);
-          form.setValue(`profiles.${guid}`, undefined);
-        });
-      } else {
-        ClearProfile(guid);
+  const trySyncSelectedProfiles = useCallback(async () => {
+    await ForceSyncSelectedProfiles().then((selectedProfiles) => {
+      const profiles = getValues("profiles");
+      for (const guid in selectedProfiles) {
+        if (guid in profiles && profiles[guid] == selectedProfiles[guid]) continue;
+        form.setValue(`profiles.${guid}`, selectedProfiles[guid]);
       }
-    }
+      for (const guid in profiles) {
+        if (guid in selectedProfiles) continue;
+        form.setValue(`profiles.${guid}`, undefined);
+      }
+    })
   }, [form]);
 
   const handleReloadConfiguration = () => {
-    LoadConfiguration().then(trySyncSelectedProfiles);
+    LoadConfiguration().then(async () => {
+      await refetchProfiles();
+      await trySyncSelectedProfiles();
+    });
   };
 
   const handleBrowseConfig = () => {
@@ -101,17 +103,10 @@ export const MainTab = ({ onOpenCabDebuggerTab }: Props) => {
   const handleRemoveControllerOverride = (profile: ProfileInfo) => {
     RemoveProfileControllerOverride(profile.Id)
       .then(() => {
-        LoadConfiguration()
-          .then(() => refetchProfiles())
-          .then(() => {
-            const profiles = form.getValues("profiles");
-            for (const guid in profiles) {
-              if (profiles[guid] && profiles[guid].Id === profile.Id) {
-                form.setValue(`profiles.${guid}`, { ...profiles[guid] });
-                SelectProfile(guid, profile.Id);
-              }
-            }
-          });
+        LoadConfiguration().then(async () => {
+          await refetchProfiles();
+          await trySyncSelectedProfiles();
+        });
         if (
           document.activeElement &&
           document.activeElement instanceof HTMLElement
@@ -129,13 +124,10 @@ export const MainTab = ({ onOpenCabDebuggerTab }: Props) => {
       actions: ["Cancel", "Confirm"],
       onConfirm: () => {
         DeleteProfile(profile.Id)
-          .then(() => {
-            const profiles = form.getValues("profiles");
-            for (const guid in profiles) {
-              ClearProfile(guid);
-              form.setValue(`profiles.${guid}`, undefined);
-            }
-            LoadConfiguration();
+          .then(async () => {
+            await LoadConfiguration();
+            await refetchProfiles();
+            await trySyncSelectedProfiles();
           })
           .catch((reason) => alert(String(reason), "error"));
       },
@@ -185,7 +177,11 @@ export const MainTab = ({ onOpenCabDebuggerTab }: Props) => {
 
   const handleImportProfile = () => {
     ImportProfile()
-      .then(() => LoadConfiguration())
+      .then(async () => {
+        await LoadConfiguration();
+        await refetchProfiles();
+        await trySyncSelectedProfiles();
+      })
       .catch((err) => alert(String(err), "error"));
   };
 

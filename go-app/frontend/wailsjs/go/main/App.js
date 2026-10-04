@@ -10,6 +10,10 @@ export function DeleteProfile(arg1) {
   return window['go']['main']['App']['DeleteProfile'](arg1);
 }
 
+export function ForceSyncSelectedProfiles() {
+  return window['go']['main']['App']['ForceSyncSelectedProfiles']();
+}
+
 export function GetAlwaysOnTop() {
   return window['go']['main']['App']['GetAlwaysOnTop']();
 }

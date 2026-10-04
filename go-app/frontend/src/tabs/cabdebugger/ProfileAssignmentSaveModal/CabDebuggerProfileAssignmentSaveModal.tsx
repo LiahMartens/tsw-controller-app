@@ -13,6 +13,7 @@ import { alert } from "../../../utils/alert";
 import {
   LoadConfiguration,
   SaveControlMapping,
+  ForceSyncSelectedProfiles,
 } from "../../../../wailsjs/go/main/App";
 
 const FORM_ID = "CabDebuggerProfileAssignmentSaveModal";
@@ -83,6 +84,7 @@ const CabDebuggerProfileAssignmentSaveModalContent = ({
         },
       );
       await LoadConfiguration();
+      await ForceSyncSelectedProfiles();
       onClose(new ProfileSavedModalCloseReason());
     } catch (err) {
       alert(`Could not save profile (${err})`, "error");

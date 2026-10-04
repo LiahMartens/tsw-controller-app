@@ -88,6 +88,16 @@ func (a *App) ClearProfile(unique_id controller_mgr.DeviceUniqueID) {
 	a.profile_runner.ClearProfile(unique_id)
 }
 
+func (a *App) ForceSyncSelectedProfiles() map[controller_mgr.DeviceUniqueID]Interop_SelectedProfileInfo {
+	selected_profiles := a.GetSelectedProfiles()
+	for uid, profile := range selected_profiles {
+		if err := a.SelectProfile(uid, profile.Id); err != nil {
+			a.ClearProfile(uid)
+		}
+	}
+	return a.GetSelectedProfiles()
+}
+
 func (a *App) RemoveProfileControllerOverride(id string) error {
 	if profile, has_profile := a.profile_runner.Profiles.Get(id); has_profile {
 		profile.Controller = nil
