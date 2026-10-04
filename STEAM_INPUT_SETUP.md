@@ -47,7 +47,10 @@ If your controller is unrecognized by Steam (which is often the case for custom 
   
 **Train Sim World 6**  
 [steam://controllerconfig/3656800/3576139582](steam://controllerconfig/3656800/3576139582)  
-  
+
+**Train Sim World 7**  
+[steam://controllerconfig/4678800/3813423589](steam://controllerconfig/4678800/3813423589)  
+
 ![Apply Gamepad Layout](https://i.postimg.cc/d3X0YMYC/003-apply-layout.jpg)  
   
 3. Steam will open the layout and ask to **Apply Configuration**. Click **Apply**.
