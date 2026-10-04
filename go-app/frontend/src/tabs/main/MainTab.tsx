@@ -16,7 +16,6 @@ import {
   SaveProfileForSharing,
   SaveProfileForSharingWithControllerInformation,
   ImportProfile,
-  ForceSyncSelectedProfiles,
   SelectProfile,
   ClearProfile,
 } from "../../../wailsjs/go/main/App";
