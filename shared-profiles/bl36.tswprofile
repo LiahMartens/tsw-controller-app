@@ -31,13 +31,15 @@
               0.8050000071525574, 0.9, 1.0
             ],
             "step_thresholds": [
-              { "threshold": 0.0008811086241844186 },
-              { "threshold": 0.3795392384112582 },
-              { "threshold": 0.5347910991636515 },
-              { "threshold": 0.6583288161380347 },
-              { "threshold": 0.7565277313452268 },
-              { "threshold": 0.8884506683599442 },
-              { "threshold": 0.9987377367093588 }
+              { "threshold": 0 },
+              { "threshold": 0.125 },
+              { "threshold": 0.25 },
+              { "threshold": 0.375 },
+              { "threshold": 0.5 },
+              { "threshold": 0.625 },
+              { "threshold": 0.75 },
+              { "threshold": 0.875 },
+              { "threshold": 1.0 }
             ]
           },
           "enable_api_fallback": true
