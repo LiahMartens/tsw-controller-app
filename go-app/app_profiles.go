@@ -81,21 +81,30 @@ func (a *App) SelectProfile(unique_id controller_mgr.DeviceUniqueID, id string) 
 		logger.Logger.Error("failed to select profile by ID", "id", id, "error", err)
 		return err
 	}
+	runtime.EventsEmit(a.ctx, AppEventType_ProfileSelectionChanged)
 	return nil
 }
 
 func (a *App) ClearProfile(unique_id controller_mgr.DeviceUniqueID) {
 	a.profile_runner.ClearProfile(unique_id)
+	runtime.EventsEmit(a.ctx, AppEventType_ProfileSelectionChanged)
 }
 
-func (a *App) ForceSyncSelectedProfiles() map[controller_mgr.DeviceUniqueID]Interop_SelectedProfileInfo {
-	selected_profiles := a.GetSelectedProfiles()
-	for uid, profile := range selected_profiles {
-		if err := a.SelectProfile(uid, profile.Id); err != nil {
-			a.ClearProfile(uid)
+func (a *App) DeleteProfile(id string) error {
+	if profile, has_profile := a.profile_runner.Profiles.Get(id); has_profile {
+		err := os.Remove(profile.Metadata.Path)
+		if err != nil {
+			return err
+		}
+		a.profile_runner.Profiles.Delete(id)
+	}
+	profileSelection := a.GetSelectedProfiles()
+	for guid, profile := range profileSelection {
+		if id == profile.Id {
+			a.ClearProfile(guid)
 		}
 	}
-	return a.GetSelectedProfiles()
+	return nil
 }
 
 func (a *App) RemoveProfileControllerOverride(id string) error {
@@ -110,16 +119,6 @@ func (a *App) RemoveProfileControllerOverride(id string) error {
 	return fmt.Errorf("could not find profile")
 }
 
-func (a *App) DeleteProfile(id string) error {
-	if profile, has_profile := a.profile_runner.Profiles.Get(id); has_profile {
-		err := os.Remove(profile.Metadata.Path)
-		if err != nil {
-			return err
-		}
-		a.profile_runner.Profiles.Delete(id)
-	}
-	return nil
-}
 func (a *App) SaveProfileForSharingWithControllerInformation(id string, unique_id controller_mgr.DeviceUniqueID) error {
 	if profile, has_profile := a.profile_runner.Profiles.Get(id); has_profile {
 		controller, has_controller := a.sdl_controller_manager.ConfiguredControllers.Get(unique_id)

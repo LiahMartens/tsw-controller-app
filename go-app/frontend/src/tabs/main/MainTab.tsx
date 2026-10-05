@@ -57,7 +57,10 @@ export const MainTab = ({ onOpenCabDebuggerTab }: Props) => {
     useState(false);
 
   const form = useForm<FormValues>({
-    defaultValues: { profiles: {} },
+    defaultValues: async () => {
+      const selection = await GetSelectedProfiles();
+      return { profiles: selection };
+    }
   });
   const { watch, getValues } = form;
 
@@ -65,25 +68,9 @@ export const MainTab = ({ onOpenCabDebuggerTab }: Props) => {
     BrowserOpenURL(url);
   }, []);
 
-  const trySyncSelectedProfiles = useCallback(async () => {
-    const profiles = getValues("profiles");
-    for (const guid in profiles) {
-      if (profiles[guid]) {
-        await SelectProfile(guid, profiles[guid].Id).catch(async () => {
-          await ClearProfile(guid);
-          form.setValue(`profiles.${guid}`, undefined);
-        });
-      } else {
-        await ClearProfile(guid);
-      }
-    }
-  }, [form]);
-
-  const handleReloadConfiguration = () => {
-    LoadConfiguration().then(async () => {
-      await refetchProfiles();
-      await trySyncSelectedProfiles();
-    });
+  const handleReloadConfiguration = async () => {
+    await refetchProfiles();
+    await LoadConfiguration();
   };
 
   const handleBrowseConfig = () => {
@@ -103,11 +90,9 @@ export const MainTab = ({ onOpenCabDebuggerTab }: Props) => {
 
   const handleRemoveControllerOverride = (profile: ProfileInfo) => {
     RemoveProfileControllerOverride(profile.Id)
-      .then(() => {
-        LoadConfiguration().then(async () => {
-          await refetchProfiles();
-          await trySyncSelectedProfiles();
-        });
+      .then(async () => {
+        await refetchProfiles();
+        await LoadConfiguration();
         if (
           document.activeElement &&
           document.activeElement instanceof HTMLElement
@@ -126,9 +111,8 @@ export const MainTab = ({ onOpenCabDebuggerTab }: Props) => {
       onConfirm: () => {
         DeleteProfile(profile.Id)
           .then(async () => {
-            await LoadConfiguration();
             await refetchProfiles();
-            await trySyncSelectedProfiles();
+            await LoadConfiguration();
           })
           .catch((reason) => alert(String(reason), "error"));
       },
@@ -179,9 +163,8 @@ export const MainTab = ({ onOpenCabDebuggerTab }: Props) => {
   const handleImportProfile = () => {
     ImportProfile()
       .then(async () => {
-        await LoadConfiguration();
         await refetchProfiles();
-        await trySyncSelectedProfiles();
+        await LoadConfiguration();
       })
       .catch((err) => alert(String(err), "error"));
   };
@@ -193,24 +176,44 @@ export const MainTab = ({ onOpenCabDebuggerTab }: Props) => {
   };
 
   useEffect(() => {
-    return watch(trySyncSelectedProfiles).unsubscribe;
-  }, [trySyncSelectedProfiles]);
+    const unsubscribeProfilesUpdated = EventsOn(events.profiles_updated, () => { refetchProfiles(); });
+    const unsubscribeJoydevicesUpdated = EventsOn(events.joydevices_updated, () => { refetchControllers(); });
+    const unsubscribeProfileSelectionUpdated = EventsOn(events.profileselection_changed, () => {
+      GetSelectedProfiles().then((profileSelection) => {
+        const formChangeOptions = { shouldTouch: true, shouldDirty: true }
+        const formProfileSelection = form.getValues("profiles");
+        /* update profile selections; profile clearing is handled below */
+        for (const guid in profileSelection) {
+          if (!profileSelection[guid]) continue;
+          if (profileSelection[guid].Id == formProfileSelection[guid]?.Id) continue; /* no change */
+          form.setValue(`profiles.${guid}`, profileSelection[guid], formChangeOptions);
+        }
+        /* clear profiles that were cleared from the Go side; new profile selection is handled above */
+        for (const guid in formProfileSelection) {
+          if (profileSelection[guid]?.Id) continue;
+          if (!formProfileSelection[guid]?.Id) continue;
+          form.setValue(`profiles.${guid}`, undefined, formChangeOptions);
+        }
+      });
+    });
+    const { unsubscribe: unsubscribeFormValues } = form.watch((values) => {
+      const profileSelection = values.profiles ?? {};
+      for (const guid in profileSelection) {
+        if (profileSelection[guid]?.Id) {
+          SelectProfile(guid, profileSelection[guid].Id);
+        } else {
+          ClearProfile(guid);
+        }
+      }
+    });
 
-  useEffect(() => {
-    GetSelectedProfiles().then((profiles) => form.reset({ profiles }));
+    return () => {
+      unsubscribeFormValues();
+      unsubscribeProfilesUpdated();
+      unsubscribeJoydevicesUpdated();
+      unsubscribeProfileSelectionUpdated();
+    }
   }, [form]);
-
-  useEffect(() => {
-    return EventsOn(events.profiles_updated, () => {
-      refetchProfiles();
-    });
-  }, []);
-
-  useEffect(() => {
-    return EventsOn(events.joydevices_updated, () => {
-      refetchControllers();
-    });
-  }, []);
 
   return (
     <div className="grid grid-cols-1 grid-flow-row auto-rows-max gap-2">

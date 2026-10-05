@@ -45,13 +45,14 @@ var embed_config_fs embed.FS
 type AppEventType = string
 
 const (
-	AppEventType_JoyDevicesUpdated AppEventType = "joydevices_updated"
-	AppEventType_ProfilesUpdated   AppEventType = "profiles_updated"
-	AppEventType_RawEvent          AppEventType = "rawevent"
-	AppEventType_ChangeEvent       AppEventType = "changeevent"
-	AppEventType_Log_Debug         AppEventType = "log/debug"
-	AppEventType_Log_Info          AppEventType = "log/info"
-	AppEventType_Log_Error         AppEventType = "log/error"
+	AppEventType_JoyDevicesUpdated       AppEventType = "joydevices_updated"
+	AppEventType_ProfilesUpdated         AppEventType = "profiles_updated"
+	AppEventType_ProfileSelectionChanged AppEventType = "profileselection_changed"
+	AppEventType_RawEvent                AppEventType = "rawevent"
+	AppEventType_ChangeEvent             AppEventType = "changeevent"
+	AppEventType_Log_Debug               AppEventType = "log/debug"
+	AppEventType_Log_Info                AppEventType = "log/info"
+	AppEventType_Log_Error               AppEventType = "log/error"
 )
 
 type AppConfig_Mode = string
@@ -225,9 +226,16 @@ func (a *App) LoadConfiguration() {
 			a.profile_runner.RegisterProfile(profile)
 		}
 	}
-
 	a.profile_runner.Resolve()
 	runtime.EventsEmit(a.ctx, AppEventType_ProfilesUpdated)
+
+	/* re-sync profile selection */
+	profileSelection := a.GetSelectedProfiles()
+	for guid, profile := range profileSelection {
+		if err := a.SelectProfile(guid, profile.Id); err != nil {
+			a.ClearProfile(guid)
+		}
+	}
 }
 
 // https://github.com/LiamMartens/tsw-controller-app/releases/download/v0.2.6/beta.package.zip
