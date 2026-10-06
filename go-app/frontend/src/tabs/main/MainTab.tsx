@@ -1,8 +1,6 @@
 import { lt as semverLt } from "semver";
 import {
   LoadConfiguration,
-  SelectProfile,
-  ClearProfile,
   GetSelectedProfiles,
   InstallTrainSimWorldMod,
   OpenConfigDirectory,
@@ -18,6 +16,8 @@ import {
   SaveProfileForSharing,
   SaveProfileForSharingWithControllerInformation,
   ImportProfile,
+  SelectProfile,
+  ClearProfile,
 } from "../../../wailsjs/go/main/App";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { BrowserOpenURL, EventsOn } from "../../../wailsjs/runtime/runtime";
@@ -57,7 +57,10 @@ export const MainTab = ({ onOpenCabDebuggerTab }: Props) => {
     useState(false);
 
   const form = useForm<FormValues>({
-    defaultValues: { profiles: {} },
+    defaultValues: async () => {
+      const selection = await GetSelectedProfiles();
+      return { profiles: selection };
+    }
   });
   const { watch, getValues } = form;
 
@@ -65,22 +68,9 @@ export const MainTab = ({ onOpenCabDebuggerTab }: Props) => {
     BrowserOpenURL(url);
   }, []);
 
-  const trySyncSelectedProfiles = useCallback(() => {
-    const profiles = getValues("profiles");
-    for (const guid in profiles) {
-      if (profiles[guid]) {
-        SelectProfile(guid, profiles[guid].Id).catch(() => {
-          ClearProfile(guid);
-          form.setValue(`profiles.${guid}`, undefined);
-        });
-      } else {
-        ClearProfile(guid);
-      }
-    }
-  }, [form]);
-
-  const handleReloadConfiguration = () => {
-    LoadConfiguration().then(trySyncSelectedProfiles);
+  const handleReloadConfiguration = async () => {
+    await refetchProfiles();
+    await LoadConfiguration();
   };
 
   const handleBrowseConfig = () => {
@@ -100,18 +90,9 @@ export const MainTab = ({ onOpenCabDebuggerTab }: Props) => {
 
   const handleRemoveControllerOverride = (profile: ProfileInfo) => {
     RemoveProfileControllerOverride(profile.Id)
-      .then(() => {
-        LoadConfiguration()
-          .then(() => refetchProfiles())
-          .then(() => {
-            const profiles = form.getValues("profiles");
-            for (const guid in profiles) {
-              if (profiles[guid] && profiles[guid].Id === profile.Id) {
-                form.setValue(`profiles.${guid}`, { ...profiles[guid] });
-                SelectProfile(guid, profile.Id);
-              }
-            }
-          });
+      .then(async () => {
+        await refetchProfiles();
+        await LoadConfiguration();
         if (
           document.activeElement &&
           document.activeElement instanceof HTMLElement
@@ -129,13 +110,9 @@ export const MainTab = ({ onOpenCabDebuggerTab }: Props) => {
       actions: ["Cancel", "Confirm"],
       onConfirm: () => {
         DeleteProfile(profile.Id)
-          .then(() => {
-            const profiles = form.getValues("profiles");
-            for (const guid in profiles) {
-              ClearProfile(guid);
-              form.setValue(`profiles.${guid}`, undefined);
-            }
-            LoadConfiguration();
+          .then(async () => {
+            await refetchProfiles();
+            await LoadConfiguration();
           })
           .catch((reason) => alert(String(reason), "error"));
       },
@@ -185,7 +162,10 @@ export const MainTab = ({ onOpenCabDebuggerTab }: Props) => {
 
   const handleImportProfile = () => {
     ImportProfile()
-      .then(() => LoadConfiguration())
+      .then(async () => {
+        await refetchProfiles();
+        await LoadConfiguration();
+      })
       .catch((err) => alert(String(err), "error"));
   };
 
@@ -196,24 +176,44 @@ export const MainTab = ({ onOpenCabDebuggerTab }: Props) => {
   };
 
   useEffect(() => {
-    return watch(trySyncSelectedProfiles).unsubscribe;
-  }, [trySyncSelectedProfiles]);
+    const unsubscribeProfilesUpdated = EventsOn(events.profiles_updated, () => { refetchProfiles(); });
+    const unsubscribeJoydevicesUpdated = EventsOn(events.joydevices_updated, () => { refetchControllers(); });
+    const unsubscribeProfileSelectionUpdated = EventsOn(events.profileselection_changed, () => {
+      GetSelectedProfiles().then((profileSelection) => {
+        const formChangeOptions = { shouldTouch: true, shouldDirty: true }
+        const formProfileSelection = form.getValues("profiles");
+        /* update profile selections; profile clearing is handled below */
+        for (const guid in profileSelection) {
+          if (!profileSelection[guid]) continue;
+          if (profileSelection[guid].Id == formProfileSelection[guid]?.Id) continue; /* no change */
+          form.setValue(`profiles.${guid}`, profileSelection[guid], formChangeOptions);
+        }
+        /* clear profiles that were cleared from the Go side; new profile selection is handled above */
+        for (const guid in formProfileSelection) {
+          if (profileSelection[guid]?.Id) continue;
+          if (!formProfileSelection[guid]?.Id) continue;
+          form.setValue(`profiles.${guid}`, undefined, formChangeOptions);
+        }
+      });
+    });
+    const { unsubscribe: unsubscribeFormValues } = form.watch((values) => {
+      const profileSelection = values.profiles ?? {};
+      for (const guid in profileSelection) {
+        if (profileSelection[guid]?.Id) {
+          SelectProfile(guid, profileSelection[guid].Id);
+        } else {
+          ClearProfile(guid);
+        }
+      }
+    });
 
-  useEffect(() => {
-    GetSelectedProfiles().then((profiles) => form.reset({ profiles }));
+    return () => {
+      unsubscribeFormValues();
+      unsubscribeProfilesUpdated();
+      unsubscribeJoydevicesUpdated();
+      unsubscribeProfileSelectionUpdated();
+    }
   }, [form]);
-
-  useEffect(() => {
-    return EventsOn(events.profiles_updated, () => {
-      refetchProfiles();
-    });
-  }, []);
-
-  useEffect(() => {
-    return EventsOn(events.joydevices_updated, () => {
-      refetchControllers();
-    });
-  }, []);
 
   return (
     <div className="grid grid-cols-1 grid-flow-row auto-rows-max gap-2">

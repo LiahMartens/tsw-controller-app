@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v1.21.0
+- Fix sync profile after mapping
+- Bump go version to 1.27.1
+- Bump wails to 2.14
+
 ## v1.20.2
 - Bump `xmldom`
 - Add note about Proton version
