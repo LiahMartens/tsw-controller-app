@@ -584,6 +584,7 @@ jobs:
           wails build -ldflags="-X 'main.VERSION=$VERSION' -X 'main.AXIOM_TOKEN=$AXIOM_TOKEN'"
         env:
           AXIOM_TOKEN: ${{ secrets.AXIOM_TOKEN }}
+      - run: find go-app/build
       - run: |
           cd go-app
           mkdir -p build/bin/tsw-controller-app.app/Contents/Frameworks
