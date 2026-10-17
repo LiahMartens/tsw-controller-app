@@ -584,7 +584,6 @@ jobs:
           wails build -ldflags="-X 'main.VERSION=$VERSION' -X 'main.AXIOM_TOKEN=$AXIOM_TOKEN'"
         env:
           AXIOM_TOKEN: ${{ secrets.AXIOM_TOKEN }}
-      - run: find go-app/build
       - run: |
           cd go-app
           mkdir -p build/bin/tsw-controller-app.app/Contents/Frameworks
@@ -685,6 +684,7 @@ jobs:
 
           mkdir -p release_assets/tswcontrollerapp_macos
           cp -r tswcontrollerapp_macos/tsw-controller-app.app release_assets/tswcontrollerapp_macos/tsw-controller-app.app
+          chmod +x release_assets/tswcontrollerapp_macos/tsw-controller-app.app/Contents/MacOS/tsw-controller-app
 
           mkdir -p release_assets/tswvirtualcontrollerapp_android
           cp tswvirtualcontrollerapp_android/app-release.apk release_assets/tswvirtualcontrollerapp_android/tswvirtualcontrollerapp_android.apk
