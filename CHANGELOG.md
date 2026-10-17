@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v1.21.1
+- Minor fix to MacOS build
+
 ## v1.21.0
 - Fix sync profile after mapping
 - Bump go version to 1.27.1
