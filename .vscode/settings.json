@@ -119,5 +119,6 @@
     "ranges": "cpp",
     "coroutine": "cpp",
     "source_location": "cpp"
-  }
+  },
+  "cmake.sourceDirectory": "/media/data/git/tsw-controller-mapper/RE-UE4SS"
 }
