@@ -1371,7 +1371,7 @@
     {
       "usb_id": "06A3:053C",
       "file": "./rainbowspacecat/mpb-csx-gp38-2-rvm-c.tswprofile",
-      "name": "GP38-2",
+      "name": "GP38-2 - Saitek X45",
       "auto_select": true,
       "apps": [
         "Train Sim World"
@@ -1384,7 +1384,7 @@
     {
       "usb_id": "06A3:053C",
       "file": "./rainbowspacecat/rvm-awl-db-class66-c.tswprofile",
-      "name": "BR Class 66",
+      "name": "BR Class 66 - Saitek X45",
       "auto_select": true,
       "apps": [
         "Train Sim World"
@@ -1397,7 +1397,7 @@
     {
       "usb_id": "06A3:053C",
       "file": "./rainbowspacecat/rvm-awl-lner-class801-01-a-dpts-c.tswprofile",
-      "name": "BR Class 801-01 LNER",
+      "name": "BR Class 801-01 LNER - Saitek X45",
       "auto_select": true,
       "apps": [
         "Train Sim World"
@@ -1410,7 +1410,7 @@
     {
       "usb_id": "06A3:053C",
       "file": "./rainbowspacecat/rvm-awl-lner-class801-09-l-dptf-c.tswprofile",
-      "name": "BR Class 801-09 LNER",
+      "name": "BR Class 801-09 LNER - Saitek X45",
       "auto_select": true,
       "apps": [
         "Train Sim World"
@@ -1423,7 +1423,7 @@
     {
       "usb_id": "06A3:053C",
       "file": "./rainbowspacecat/rvm-awl-nt-class331-dms-c.tswprofile",
-      "name": "BR Class 331 DMS",
+      "name": "BR Class 331 DMS - Saitek X45",
       "auto_select": true,
       "apps": [
         "Train Sim World"
@@ -1436,7 +1436,7 @@
     {
       "usb_id": "06A3:053C",
       "file": "./rainbowspacecat/rvm-awl-nt-class331-dmsl-c.tswprofile",
-      "name": "BR Class 331 DMSL",
+      "name": "BR Class 331 DMSL - Saitek X45",
       "auto_select": true,
       "apps": [
         "Train Sim World"
@@ -1449,7 +1449,7 @@
     {
       "usb_id": "06A3:053C",
       "file": "./rainbowspacecat/rvm-mpb-sd40-2-c.tswprofile",
-      "name": "SD40",
+      "name": "SD40 - Saitek X45",
       "auto_select": true,
       "apps": [
         "Train Sim World"
@@ -1462,7 +1462,7 @@
     {
       "usb_id": "06A3:053C",
       "file": "./rainbowspacecat/rvm-mpb-tr-bl36ph-c.tswprofile",
-      "name": "BL36PH",
+      "name": "BL36PH - Saitek X45",
       "auto_select": true,
       "apps": [
         "Train Sim World"
@@ -1475,7 +1475,7 @@
     {
       "usb_id": "06A3:053C",
       "file": "./rainbowspacecat/rvm-mpb-tr-bl36ph-ontrack-c.tswprofile",
-      "name": "BL36PH OnTrack",
+      "name": "BL36PH OnTrack - Saitek X45",
       "auto_select": true,
       "apps": [
         "Train Sim World"
@@ -1488,7 +1488,7 @@
     {
       "usb_id": "06A3:053C",
       "file": "./rainbowspacecat/rvm-mpb-tr-f40ph-3c-c.tswprofile",
-      "name": "F40PH",
+      "name": "F40PH - Saitek X45",
       "auto_select": true,
       "apps": [
         "Train Sim World"
@@ -1501,7 +1501,7 @@
     {
       "usb_id": "06A3:053C",
       "file": "./rainbowspacecat/rvm-mpb-tr-rotemcars-cabcar-c.tswprofile",
-      "name": "RotemCars Cabcar",
+      "name": "RotemCars Cabcar - Saitek X45",
       "auto_select": true,
       "apps": [
         "Train Sim World"
@@ -1514,7 +1514,7 @@
     {
       "usb_id": "06A3:053C",
       "file": "./rainbowspacecat/rvm-mpb-tr-rotemcars-palmcloudcabcar-c.tswprofile",
-      "name": "RotemCars Cabcar Florida",
+      "name": "RotemCars Cabcar Florida - Saitek X45",
       "auto_select": true,
       "apps": [
         "Train Sim World"
@@ -1527,7 +1527,7 @@
     {
       "usb_id": "06A3:053C",
       "file": "./rainbowspacecat/rvm-nwb-db-br440-0-c.tswprofile",
-      "name": "DB BR440-0",
+      "name": "DB BR440-0 - Saitek X45",
       "auto_select": true,
       "apps": [
         "Train Sim World"
@@ -1540,7 +1540,7 @@
     {
       "usb_id": "06A3:053C",
       "file": "./rainbowspacecat/rvm-nwb-db-br440-5-c.tswprofile",
-      "name": "DB BR440-5",
+      "name": "DB BR440-5 - Saitek X45",
       "auto_select": true,
       "apps": [
         "Train Sim World"
@@ -1553,7 +1553,7 @@
     {
       "usb_id": "06A3:053C",
       "file": "./rainbowspacecat/rvm-nwb-db-br442-t1-c.tswprofile",
-      "name": "DB BR442-t1",
+      "name": "DB BR442-t1 - Saitek X45",
       "auto_select": true,
       "apps": [
         "Train Sim World"
@@ -1566,7 +1566,7 @@
     {
       "usb_id": "06A3:053C",
       "file": "./rainbowspacecat/rvm-nwb-db-br442-t2-c.tswprofile",
-      "name": "DB BR442-t2",
+      "name": "DB BR442-t2 - Saitek X45",
       "auto_select": true,
       "apps": [
         "Train Sim World"
@@ -1579,7 +1579,7 @@
     {
       "usb_id": "06A3:053C",
       "file": "./rainbowspacecat/rvm-nwb-db-ice1-401-0-c.tswprofile",
-      "name": "DB ICE 401-0",
+      "name": "DB ICE 401-0 - Saitek X45",
       "auto_select": true,
       "apps": [
         "Train Sim World"
@@ -1592,7 +1592,7 @@
     {
       "usb_id": "06A3:053C",
       "file": "./rainbowspacecat/rvm-nwb-db-ice1-401-5-c.tswprofile",
-      "name": "DB ICE 401-5",
+      "name": "DB ICE 401-5 - Saitek X45",
       "auto_select": true,
       "apps": [
         "Train Sim World"
@@ -1605,7 +1605,7 @@
     {
       "usb_id": "06A3:053C",
       "file": "./rainbowspacecat/rvm-nwb-db-vectron-c.tswprofile",
-      "name": "DB Vectron",
+      "name": "DB Vectron - Saitek X45",
       "auto_select": true,
       "apps": [
         "Train Sim World"
@@ -1618,7 +1618,7 @@
     {
       "usb_id": "06A3:053C",
       "file": "./rainbowspacecat/rvm-seh-ews-class66-c.tswprofile",
-      "name": "SEH EWS Class66",
+      "name": "SEH EWS Class66 - Saitek X45",
       "auto_select": true,
       "apps": [
         "Train Sim World"
@@ -1631,7 +1631,7 @@
     {
       "usb_id": "06A3:053C",
       "file": "./rainbowspacecat/rvm-ttc-br146-c.tswprofile",
-      "name": "BR 146",
+      "name": "BR 146 - Saitek X45",
       "auto_select": true,
       "apps": [
         "Train Sim World"
@@ -1644,7 +1644,7 @@
     {
       "usb_id": "06A3:053C",
       "file": "./rainbowspacecat/rvm-ttc-class323-dms-a-c.tswprofile",
-      "name": "BR Class 323 DMS A",
+      "name": "BR Class 323 DMS A - Saitek X45",
       "auto_select": true,
       "apps": [
         "Train Sim World"
@@ -1657,7 +1657,7 @@
     {
       "usb_id": "06A3:053C",
       "file": "./rainbowspacecat/rvm-ttc-class323-dms-b-c.tswprofile",
-      "name": "BR Class 323 DMS B",
+      "name": "BR Class 323 DMS B - Saitek X45",
       "auto_select": true,
       "apps": [
         "Train Sim World"
