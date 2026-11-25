@@ -1,0 +1,304 @@
+{
+  "name": "KiHa 40 - Zuiki MasCon",
+  "controls": [
+    {
+      "name": "MasterControl",
+      "description": "Regulator Direct Control + Full Brake Progression",
+      "assignments": [
+        {
+          "type": "direct_control",
+          "controls": "Handle_Regulator_F(lever)",
+          "input_value": {
+            "min": 0,
+            "max": 5,
+            "steps": [
+              5,
+              4,
+              3,
+              2,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "step_thresholds": [
+              { "threshold": 1.0, "threshold_tolerance": 0.04 },
+              { "threshold": 0.803, "threshold_tolerance": 0.04 },
+              { "threshold": 0.614, "threshold_tolerance": 0.04 },
+              { "threshold": 0.433, "threshold_tolerance": 0.04 },
+              { "threshold": 0.244, "threshold_tolerance": 0.04 },
+              { "threshold": 0.0, "threshold_tolerance": 0.05 },
+              { "threshold": -0.212, "threshold_tolerance": 0.03 },
+              { "threshold": -0.321, "threshold_tolerance": 0.03 },
+              { "threshold": -0.431, "threshold_tolerance": 0.03 },
+              { "threshold": -0.533, "threshold_tolerance": 0.03 },
+              { "threshold": -0.642, "threshold_tolerance": 0.03 },
+              { "threshold": -0.752, "threshold_tolerance": 0.03 },
+              { "threshold": -0.854, "threshold_tolerance": 0.03 },
+              { "threshold": -0.963, "threshold_tolerance": 0.02 },
+              { "threshold": -1.0, "threshold_tolerance": 0.02 }
+            ]
+          }
+        },
+        {
+          "type": "momentary",
+          "threshold": -0.20,
+          "action_activate": {
+            "keys": ";",
+            "press_time": 0.30,
+            "wait_time": 0.12
+          },
+          "action_deactivate": {
+            "keys": "'",
+            "press_time": 0.30,
+            "wait_time": 0.12
+          }
+        },
+        {
+          "type": "momentary",
+          "threshold": -0.36,
+          "action_activate": {
+            "keys": ";",
+            "press_time": 0.30,
+            "wait_time": 0.12
+          },
+          "action_deactivate": {
+            "keys": "'",
+            "press_time": 0.30,
+            "wait_time": 0.12
+          }
+        },
+        {
+          "type": "momentary",
+          "threshold": -0.53,
+          "action_activate": {
+            "keys": ";",
+            "press_time": 0.30,
+            "wait_time": 0.12
+          },
+          "action_deactivate": {
+            "keys": "'",
+            "press_time": 0.30,
+            "wait_time": 0.12
+          }
+        },
+        {
+          "type": "momentary",
+          "threshold": -0.70,
+          "action_activate": {
+            "keys": ";",
+            "press_time": 0.30,
+            "wait_time": 0.12
+          },
+          "action_deactivate": {
+            "keys": "'",
+            "press_time": 0.30,
+            "wait_time": 0.12
+          }
+        },
+        {
+          "type": "momentary",
+          "threshold": -0.985,
+          "action_activate": {
+            "keys": ";",
+            "press_time": 0.35,
+            "wait_time": 0.12
+          },
+          "action_deactivate": {
+            "keys": "'",
+            "press_time": 0.30,
+            "wait_time": 0.12
+          }
+        }
+      ]
+    },
+    {
+      "name": "A",
+      "description": "Horn",
+      "assignments": [
+        {
+          "type": "momentary",
+          "threshold": 0.9,
+          "action_activate": {
+            "keys": "space"
+          }
+        }
+      ]
+    },
+    {
+      "name": "B",
+      "description": "Acknowledge / Alerter",
+      "assignments": [
+        {
+          "type": "momentary",
+          "threshold": 0.9,
+          "action_activate": {
+            "keys": "q",
+            "press_time": 0.2,
+            "wait_time": 0.2
+          }
+        }
+      ]
+    },
+    {
+      "name": "X",
+      "description": "Cab Light",
+      "assignments": [
+        {
+          "type": "momentary",
+          "threshold": 0.9,
+          "action_activate": {
+            "keys": "l",
+            "press_time": 0.15,
+            "wait_time": 0.15
+          }
+        }
+      ]
+    },
+    {
+      "name": "Y",
+      "description": "Headlights",
+      "assignments": [
+        {
+          "type": "momentary",
+          "threshold": 0.9,
+          "action_activate": {
+            "keys": "h"
+          }
+        }
+      ]
+    },
+    {
+      "name": "-",
+      "description": "Toggle HUD",
+      "assignments": [
+        {
+          "type": "momentary",
+          "threshold": 0.9,
+          "action_activate": {
+            "keys": "f1",
+            "press_time": 0.15,
+            "wait_time": 0.15
+          }
+        }
+      ]
+    },
+    {
+      "name": "+",
+      "description": "Timetable / Task List",
+      "assignments": [
+        {
+          "type": "momentary",
+          "threshold": 0.9,
+          "action_activate": {
+            "keys": "t",
+            "press_time": 0.15,
+            "wait_time": 0.15
+          }
+        }
+      ]
+    },
+    {
+      "name": "Home",
+      "description": "Reset to Driver Seat",
+      "assignments": [
+        {
+          "type": "momentary",
+          "threshold": 0.9,
+          "action_activate": {
+            "keys": "1",
+            "press_time": 0.15,
+            "wait_time": 0.15
+          }
+        }
+      ]
+    },
+    {
+      "name": "Shot",
+      "description": "Quick Menu (Doors / Signals)",
+      "assignments": [
+        {
+          "type": "momentary",
+          "threshold": 0.9,
+          "action_activate": {
+            "keys": "tab",
+            "press_time": 0.15,
+            "wait_time": 0.15
+          }
+        }
+      ]
+    },
+    {
+      "name": "L",
+      "description": "Open Close Left Doors",
+      "assignments": [
+        {
+          "type": "momentary",
+          "threshold": 0.9,
+          "action_activate": {
+            "keys": "y"
+          }
+        }
+      ]
+    },
+    {
+      "name": "R",
+      "description": "Open Close Right Doors",
+      "assignments": [
+        {
+          "type": "momentary",
+          "threshold": 0.9,
+          "action_activate": {
+            "keys": "u"
+          }
+        }
+      ]
+    }
+  ],
+  "controller": {
+    "usb_id": "33DD:0002",
+    "mapping": {
+      "name": "Zuiki MasCon",
+      "usb_id": "33DD:0002",
+      "data": [
+        { "kind": "axis", "index": 1, "name": "MasterControl" },
+        { "kind": "button", "index": 0, "name": "B" },
+        { "kind": "button", "index": 1, "name": "A" },
+        { "kind": "button", "index": 2, "name": "Y" },
+        { "kind": "button", "index": 3, "name": "X" },
+        { "kind": "button", "index": 4, "name": "-" },
+        { "kind": "button", "index": 5, "name": "Home" },
+        { "kind": "button", "index": 6, "name": "+" },
+        { "kind": "button", "index": 9, "name": "L" },
+        { "kind": "button", "index": 10, "name": "R" },
+        { "kind": "button", "index": 11, "name": "Shot" },
+        { "kind": "hat", "index": 0, "name": "Arrow" }
+      ]
+    },
+    "calibration": {
+      "usb_id": "33DD:0002",
+      "data": [
+        {
+          "id": "MasterControl",
+          "deadzone": 100,
+          "invert": false,
+          "min": -32768,
+          "max": 32767,
+          "idle": 128,
+          "easing_curve": [0, 0, 1, 1],
+          "anti_jitter": 0
+        }
+      ]
+    }
+  },
+  "apps": [
+    "Train Sim World"
+  ]
+}
