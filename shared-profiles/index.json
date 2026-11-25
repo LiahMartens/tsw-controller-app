@@ -1367,6 +1367,305 @@
       "apps": [
         "Train Sim World"
       ]
+    },
+    {
+      "usb_id": "06A3:053C",
+      "file": "./rainbowspacecat/mpb-csx-gp38-2-rvm-c.tswprofile",
+      "name": "GP38-2",
+      "auto_select": true,
+      "apps": [
+        "Train Sim World"
+      ],
+      "author": {
+        "name": "RainbowSpaceCat",
+        "url": "https://github.com/RainbowSpaceCat"
+      }
+    },
+    {
+      "usb_id": "06A3:053C",
+      "file": "./rainbowspacecat/rvm-awl-db-class66-c.tswprofile",
+      "name": "BR Class 66",
+      "auto_select": true,
+      "apps": [
+        "Train Sim World"
+      ],
+      "author": {
+        "name": "RainbowSpaceCat",
+        "url": "https://github.com/RainbowSpaceCat"
+      }
+    },
+    {
+      "usb_id": "06A3:053C",
+      "file": "./rainbowspacecat/rvm-awl-lner-class801-01-a-dpts-c.tswprofile",
+      "name": "BR Class 801-01 LNER",
+      "auto_select": true,
+      "apps": [
+        "Train Sim World"
+      ],
+      "author": {
+        "name": "RainbowSpaceCat",
+        "url": "https://github.com/RainbowSpaceCat"
+      }
+    },
+    {
+      "usb_id": "06A3:053C",
+      "file": "./rainbowspacecat/rvm-awl-lner-class801-09-l-dptf-c.tswprofile",
+      "name": "BR Class 801-09 LNER",
+      "auto_select": true,
+      "apps": [
+        "Train Sim World"
+      ],
+      "author": {
+        "name": "RainbowSpaceCat",
+        "url": "https://github.com/RainbowSpaceCat"
+      }
+    },
+    {
+      "usb_id": "06A3:053C",
+      "file": "./rainbowspacecat/rvm-awl-nt-class331-dms-c.tswprofile",
+      "name": "BR Class 331 DMS",
+      "auto_select": true,
+      "apps": [
+        "Train Sim World"
+      ],
+      "author": {
+        "name": "RainbowSpaceCat",
+        "url": "https://github.com/RainbowSpaceCat"
+      }
+    },
+    {
+      "usb_id": "06A3:053C",
+      "file": "./rainbowspacecat/rvm-awl-nt-class331-dmsl-c.tswprofile",
+      "name": "BR Class 331 DMSL",
+      "auto_select": true,
+      "apps": [
+        "Train Sim World"
+      ],
+      "author": {
+        "name": "RainbowSpaceCat",
+        "url": "https://github.com/RainbowSpaceCat"
+      }
+    },
+    {
+      "usb_id": "06A3:053C",
+      "file": "./rainbowspacecat/rvm-mpb-sd40-2-c.tswprofile",
+      "name": "SD40",
+      "auto_select": true,
+      "apps": [
+        "Train Sim World"
+      ],
+      "author": {
+        "name": "RainbowSpaceCat",
+        "url": "https://github.com/RainbowSpaceCat"
+      }
+    },
+    {
+      "usb_id": "06A3:053C",
+      "file": "./rainbowspacecat/rvm-mpb-tr-bl36ph-c.tswprofile",
+      "name": "BL36PH",
+      "auto_select": true,
+      "apps": [
+        "Train Sim World"
+      ],
+      "author": {
+        "name": "RainbowSpaceCat",
+        "url": "https://github.com/RainbowSpaceCat"
+      }
+    },
+    {
+      "usb_id": "06A3:053C",
+      "file": "./rainbowspacecat/rvm-mpb-tr-bl36ph-ontrack-c.tswprofile",
+      "name": "BL36PH OnTrack",
+      "auto_select": true,
+      "apps": [
+        "Train Sim World"
+      ],
+      "author": {
+        "name": "RainbowSpaceCat",
+        "url": "https://github.com/RainbowSpaceCat"
+      }
+    },
+    {
+      "usb_id": "06A3:053C",
+      "file": "./rainbowspacecat/rvm-mpb-tr-f40ph-3c-c.tswprofile",
+      "name": "F40PH",
+      "auto_select": true,
+      "apps": [
+        "Train Sim World"
+      ],
+      "author": {
+        "name": "RainbowSpaceCat",
+        "url": "https://github.com/RainbowSpaceCat"
+      }
+    },
+    {
+      "usb_id": "06A3:053C",
+      "file": "./rainbowspacecat/rvm-mpb-tr-rotemcars-cabcar-c.tswprofile",
+      "name": "RotemCars Cabcar",
+      "auto_select": true,
+      "apps": [
+        "Train Sim World"
+      ],
+      "author": {
+        "name": "RainbowSpaceCat",
+        "url": "https://github.com/RainbowSpaceCat"
+      }
+    },
+    {
+      "usb_id": "06A3:053C",
+      "file": "./rainbowspacecat/rvm-mpb-tr-rotemcars-palmcloudcabcar-c.tswprofile",
+      "name": "RotemCars Cabcar Florida",
+      "auto_select": true,
+      "apps": [
+        "Train Sim World"
+      ],
+      "author": {
+        "name": "RainbowSpaceCat",
+        "url": "https://github.com/RainbowSpaceCat"
+      }
+    },
+    {
+      "usb_id": "06A3:053C",
+      "file": "./rainbowspacecat/rvm-nwb-db-br440-0-c.tswprofile",
+      "name": "DB BR440-0",
+      "auto_select": true,
+      "apps": [
+        "Train Sim World"
+      ],
+      "author": {
+        "name": "RainbowSpaceCat",
+        "url": "https://github.com/RainbowSpaceCat"
+      }
+    },
+    {
+      "usb_id": "06A3:053C",
+      "file": "./rainbowspacecat/rvm-nwb-db-br440-5-c.tswprofile",
+      "name": "DB BR440-5",
+      "auto_select": true,
+      "apps": [
+        "Train Sim World"
+      ],
+      "author": {
+        "name": "RainbowSpaceCat",
+        "url": "https://github.com/RainbowSpaceCat"
+      }
+    },
+    {
+      "usb_id": "06A3:053C",
+      "file": "./rainbowspacecat/rvm-nwb-db-br442-t1-c.tswprofile",
+      "name": "DB BR442-t1",
+      "auto_select": true,
+      "apps": [
+        "Train Sim World"
+      ],
+      "author": {
+        "name": "RainbowSpaceCat",
+        "url": "https://github.com/RainbowSpaceCat"
+      }
+    },
+    {
+      "usb_id": "06A3:053C",
+      "file": "./rainbowspacecat/rvm-nwb-db-br442-t2-c.tswprofile",
+      "name": "DB BR442-t2",
+      "auto_select": true,
+      "apps": [
+        "Train Sim World"
+      ],
+      "author": {
+        "name": "RainbowSpaceCat",
+        "url": "https://github.com/RainbowSpaceCat"
+      }
+    },
+    {
+      "usb_id": "06A3:053C",
+      "file": "./rainbowspacecat/rvm-nwb-db-ice1-401-0-c.tswprofile",
+      "name": "DB ICE 401-0",
+      "auto_select": true,
+      "apps": [
+        "Train Sim World"
+      ],
+      "author": {
+        "name": "RainbowSpaceCat",
+        "url": "https://github.com/RainbowSpaceCat"
+      }
+    },
+    {
+      "usb_id": "06A3:053C",
+      "file": "./rainbowspacecat/rvm-nwb-db-ice1-401-5-c.tswprofile",
+      "name": "DB ICE 401-5",
+      "auto_select": true,
+      "apps": [
+        "Train Sim World"
+      ],
+      "author": {
+        "name": "RainbowSpaceCat",
+        "url": "https://github.com/RainbowSpaceCat"
+      }
+    },
+    {
+      "usb_id": "06A3:053C",
+      "file": "./rainbowspacecat/rvm-nwb-db-vectron-c.tswprofile",
+      "name": "DB Vectron",
+      "auto_select": true,
+      "apps": [
+        "Train Sim World"
+      ],
+      "author": {
+        "name": "RainbowSpaceCat",
+        "url": "https://github.com/RainbowSpaceCat"
+      }
+    },
+    {
+      "usb_id": "06A3:053C",
+      "file": "./rainbowspacecat/rvm-seh-ews-class66-c.tswprofile",
+      "name": "SEH EWS Class66",
+      "auto_select": true,
+      "apps": [
+        "Train Sim World"
+      ],
+      "author": {
+        "name": "RainbowSpaceCat",
+        "url": "https://github.com/RainbowSpaceCat"
+      }
+    },
+    {
+      "usb_id": "06A3:053C",
+      "file": "./rainbowspacecat/rvm-ttc-br146-c.tswprofile",
+      "name": "BR 146",
+      "auto_select": true,
+      "apps": [
+        "Train Sim World"
+      ],
+      "author": {
+        "name": "RainbowSpaceCat",
+        "url": "https://github.com/RainbowSpaceCat"
+      }
+    },
+    {
+      "usb_id": "06A3:053C",
+      "file": "./rainbowspacecat/rvm-ttc-class323-dms-a-c.tswprofile",
+      "name": "BR Class 323 DMS A",
+      "auto_select": true,
+      "apps": [
+        "Train Sim World"
+      ],
+      "author": {
+        "name": "RainbowSpaceCat",
+        "url": "https://github.com/RainbowSpaceCat"
+      }
+    },
+    {
+      "usb_id": "06A3:053C",
+      "file": "./rainbowspacecat/rvm-ttc-class323-dms-b-c.tswprofile",
+      "name": "BR Class 323 DMS B",
+      "auto_select": true,
+      "apps": [
+        "Train Sim World"
+      ],
+      "author": {
+        "name": "RainbowSpaceCat",
+        "url": "https://github.com/RainbowSpaceCat"
+      }
     }
   ]
 }
