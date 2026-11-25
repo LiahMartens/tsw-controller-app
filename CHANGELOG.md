@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v1.22.0
+- Security patches
+- Added new set of Saitek X45 profiles ( Author [@RainbowSpaceCat](https://github.com/RainbowSpaceCat) )
+
 ## v1.21.0
 - Fix sync profile after mapping
 - Bump go version to 1.27.1
