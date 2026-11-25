@@ -1,0 +1,309 @@
+{
+  "name": "MPB_CSX_GP38-2_RVM_C",
+  "controls": [
+    {
+      "name": "Throttle",
+      "assignments": [
+        {
+          "type": "direct_control",
+          "controls": "Throttle",
+          "input_value": {
+            "min": 0,
+            "max": 1,
+            "invert": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "Aux 3",
+      "assignments": [
+        {
+          "type": "momentary",
+          "threshold": 0.75,
+          "action_activate": {
+            "keys": "space"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Aux 1",
+      "assignments": [
+        {
+          "type": "momentary",
+          "threshold": 0.75,
+          "action_activate": {
+            "keys": "b"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Mouse Hat Up",
+      "assignments": [
+        {
+          "type": "momentary",
+          "threshold": 0.75,
+          "action_activate": {
+            "keys": "h"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Mouse Hat Down",
+      "assignments": [
+        {
+          "type": "momentary",
+          "threshold": 0.75,
+          "action_activate": {
+            "keys": "shift+h"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Rotary 2",
+      "assignments": [
+        {
+          "type": "direct_control",
+          "controls": "IndependentBrake",
+          "input_value": {
+            "min": 0,
+            "max": 1
+          }
+        }
+      ]
+    },
+    {
+      "name": "Rotary 1",
+      "assignments": [
+        {
+          "type": "direct_control",
+          "controls": "AutomaticBrake",
+          "input_value": {
+            "min": 0,
+            "max": 1
+          }
+        }
+      ]
+    },
+    {
+      "name": "Throttle Hat Down",
+      "assignments": [
+        {
+          "type": "momentary",
+          "threshold": 0.75,
+          "action_activate": {
+            "keys": "w"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Throttle Hat Up",
+      "assignments": [
+        {
+          "type": "momentary",
+          "threshold": 0.75,
+          "action_activate": {
+            "keys": "s"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Button 5",
+      "assignments": [
+        {
+          "type": "momentary",
+          "threshold": 0.75,
+          "action_activate": {
+            "keys": "q"
+          }
+        }
+      ]
+    }
+  ],
+  "auto_select": true,
+  "controller": {
+    "usb_id": "06A3:053C",
+    "mapping": {
+      "name": "Saitek X45 - MPB_CSX_GP38-2_RVM_C",
+      "usb_id": "06A3:053C",
+      "data": [
+        {
+          "kind": "axis",
+          "index": 3,
+          "name": "Rudder"
+        },
+        {
+          "kind": "button",
+          "index": 14,
+          "name": "POV 2 Up"
+        },
+        {
+          "kind": "button",
+          "index": 8,
+          "name": "Mode M1"
+        },
+        {
+          "kind": "button",
+          "index": 9,
+          "name": "Mode M2"
+        },
+        {
+          "kind": "axis",
+          "index": 2,
+          "name": "Rotary 2"
+        },
+        {
+          "kind": "button",
+          "index": 10,
+          "name": "Mode M3"
+        },
+        {
+          "kind": "button",
+          "index": 11,
+          "name": "Aux 1"
+        },
+        {
+          "kind": "button",
+          "index": 19,
+          "name": "Throttle Hat Right"
+        },
+        {
+          "kind": "button",
+          "index": 3,
+          "name": "Button 4"
+        },
+        {
+          "kind": "button",
+          "index": 5,
+          "name": "Button 6"
+        },
+        {
+          "kind": "axis",
+          "index": 0,
+          "name": "X-axis"
+        },
+        {
+          "kind": "axis",
+          "index": 5,
+          "name": "Rotary 1"
+        },
+        {
+          "kind": "button",
+          "index": 12,
+          "name": "Aux 2"
+        },
+        {
+          "kind": "button",
+          "index": 18,
+          "name": "Throttle Hat Up"
+        },
+        {
+          "kind": "button",
+          "index": 24,
+          "name": "Mouse Hat Down"
+        },
+        {
+          "kind": "axis",
+          "index": 4,
+          "name": "Throttle"
+        },
+        {
+          "kind": "button",
+          "index": 22,
+          "name": "Mouse Hat Up"
+        },
+        {
+          "kind": "button",
+          "index": 6,
+          "name": "Button 7"
+        },
+        {
+          "kind": "button",
+          "index": 15,
+          "name": "POV 2 Right"
+        },
+        {
+          "kind": "button",
+          "index": 16,
+          "name": "POV 2 Down"
+        },
+        {
+          "kind": "button",
+          "index": 17,
+          "name": "POV 2 Left"
+        },
+        {
+          "kind": "button",
+          "index": 21,
+          "name": "Throttle Hat Left"
+        },
+        {
+          "kind": "button",
+          "index": 4,
+          "name": "Button 5"
+        },
+        {
+          "kind": "hat",
+          "index": 0,
+          "name": "POV 1"
+        },
+        {
+          "kind": "axis",
+          "index": 1,
+          "name": "Y-axis"
+        },
+        {
+          "kind": "button",
+          "index": 0,
+          "name": "Button 1"
+        },
+        {
+          "kind": "button",
+          "index": 2,
+          "name": "Button 3"
+        },
+        {
+          "kind": "button",
+          "index": 20,
+          "name": "Throttle Hat Down"
+        },
+        {
+          "kind": "button",
+          "index": 7,
+          "name": "Button 8"
+        },
+        {
+          "kind": "button",
+          "index": 25,
+          "name": "Mouse Hat Left"
+        },
+        {
+          "kind": "button",
+          "index": 1,
+          "name": "Button 2"
+        },
+        {
+          "kind": "button",
+          "index": 13,
+          "name": "Aux 3"
+        },
+        {
+          "kind": "button",
+          "index": 23,
+          "name": "Mouse Hat Right"
+        }
+      ]
+    }
+  },
+  "rail_class_information": [
+    {
+      "class_name": "MPB_CSX_GP38-2_RVM_C"
+    }
+  ]
+}
